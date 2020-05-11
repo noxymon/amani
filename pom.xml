@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>id.akademi</groupId>
-    <artifactId>amanda</artifactId>
+    <artifactId>amani</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>amanda</name>
-    <description>Amanda : Akademi IMANI middleware</description>
+    <name>amani</name>
+    <description>amani : Akademi IMANI middleware</description>
 
     <properties>
         <java.version>11</java.version>
