@@ -1,2 +1,2 @@
 # AMANI
-AMANI is Akademi IMANI, Open Couse for everyone :)
+AMANI is Akademi IMANI, Open Course for everyone :)
