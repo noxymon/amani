@@ -1,0 +1,51 @@
+# ---------------------------------------------------------
+# *** JDBC configuration to fetch metadata ***
+
+jdbcSettings:
+  url: "jdbc:mariadb://172.17.0.2:3306/amanidb_v1"
+  username: "master"
+  password: password4m4ni2020
+  driverClassName: "org.mariadb.jdbc.Driver"
+
+# ---------------------------------------------------------
+# *** Basic/global configuration ***
+
+# If you need to specify non-standard source directory, set the following setting as needed
+#   - string value: the relative path from the project root directory.
+outputDirectory: "src/main/java"
+
+# The package name used when generating entity classes
+#   - string value: full package name
+packageName: "id.akademi.amanda.services.repositories.entities"
+
+# If you'd like to have JSR-305 annotations in entity classes as well, set the following attribute
+#   - boolean value: true if you need to generate Nonnull/Nullable annotation-wired entities as well
+jsr305AnnotationsRequired: false
+
+# If you want use primitive type instead of the boxing type(e.g: int <-> Integer), set the following attribute
+# This will only take effect on non null fields
+#   - boolean value: true if you want to use primitive type for non null fields
+usePrimitiveForNonNullField: false
+
+# ---------------------------------------------------------
+# *** Table scan mode ***
+
+# Set the scan mode (possible values: All / RuleBased)
+#   - string value: 'All' (default) or 'RuleBased'
+tableScanMode: 'All'
+
+# If the "tableScanMode" is "RuleBased", the table scanner considers these rules
+#   - array of TableScanRule objects
+#     - tableName (string) / tableNames (array): string value that partially matches table names (case sensitive)
+#tableScanRules:
+#  - tableNames: ["foo_.*"]
+
+# ---------------------------------------------------------
+# *** Rules for exclusion ***
+
+# Define the following rules if you'd like to exclude specific tables when generating entity classes
+#   - array of TableExclusionRule objects
+#     - tableName (string) / tableNames (array): string value that partially matches table names (case sensitive)
+tableExclusionRules:
+  - tableName: [".*_tmp"]
+  - tableNames: [".*_tmp2"]
