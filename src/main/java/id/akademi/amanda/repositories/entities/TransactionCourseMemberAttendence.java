@@ -1,4 +1,4 @@
-package id.akademi.amanda.services.repositories.entities;
+package id.akademi.amanda.repositories.entities;
 
 import java.sql.*;
 import java.util.UUID;
