@@ -1,2 +1,2 @@
-# amanda
-Amanda is Akademi IMANI middleware, Open Couse for everyone :)
+# AMANI
+AMANI is Akademi IMANI, Open Course for everyone :)
