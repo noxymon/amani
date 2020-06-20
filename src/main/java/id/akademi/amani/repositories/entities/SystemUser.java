@@ -1,4 +1,4 @@
-package id.akademi.amanda.repositories.entities;
+package id.akademi.amani.repositories.entities;
 
 import java.sql.*;
 import java.util.UUID;
@@ -7,7 +7,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 @Data
-@Entity(name = "id.akademi.amanda.services.repositories.entities.SystemUser")
+@Entity(name = "id.akademi.amani.services.repositories.entities.SystemUser")
 @Table(name = "system_user")
 public class SystemUser {
 

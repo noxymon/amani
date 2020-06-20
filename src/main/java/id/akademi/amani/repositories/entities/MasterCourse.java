@@ -1,21 +1,22 @@
-package id.akademi.amanda.repositories.entities;
+package id.akademi.amani.repositories.entities;
 
 import java.sql.*;
 import java.util.UUID;
 import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 @Data
-@Entity(name = "id.akademi.amanda.services.repositories.entities.MasterCourse")
+@Entity(name = "id.akademi.amani.services.repositories.entities.MasterCourse")
 @Table(name = "master_course")
 public class MasterCourse {
 
   @Id
   @GeneratedValue(generator = "uuid2")
-  @Column(name = "\"id\"", nullable = false)
   @GenericGenerator(name = "uuid2", strategy = "uuid2")
-  private UUID id;
+  @Column(name = "\"id\"", nullable = false)
+  private String id;
   @Column(name = "\"course_name\"", nullable = false)
   private String courseName;
   @Column(name = "\"course_description\"", nullable = true)

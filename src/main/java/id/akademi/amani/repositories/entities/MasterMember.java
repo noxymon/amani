@@ -1,10 +1,8 @@
-package id.akademi.amanda.repositories.entities;
+package id.akademi.amani.repositories.entities;
 
 import java.sql.*;
-import java.util.UUID;
 import javax.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Entity(name = "id.akademi.amanda.services.repositories.entities.MasterMember")
@@ -12,10 +10,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class MasterMember {
 
   @Id
-  @GeneratedValue(generator = "uuid2")
   @Column(name = "\"id\"", nullable = false)
-  @GenericGenerator(name = "uuid2", strategy = "uuid2")
-  private UUID id;
+  private String id;
   @Column(name = "\"email\"", nullable = false)
   private String email;
   @Column(name = "\"first_name\"", nullable = false)
@@ -36,4 +32,6 @@ public class MasterMember {
   private String userUpdated;
   @Column(name = "\"active\"", nullable = false)
   private boolean active;
+  @Column(name = "\"password\"", nullable = false)
+  private String password;
 }

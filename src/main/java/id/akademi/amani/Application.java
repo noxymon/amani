@@ -1,15 +1,15 @@
-package id.akademi.amanda;
+package id.akademi.amani;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AmandaApplication
+public class Application
 {
 
     public static void main(String[] args)
     {
-        SpringApplication.run(AmandaApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

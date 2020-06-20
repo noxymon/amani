@@ -1,6 +1,6 @@
-package id.akademi.amanda.repositories;
+package id.akademi.amani.repositories;
 
-import id.akademi.amanda.repositories.entities.TransactionCourseMemberAttendence;
+import id.akademi.amani.repositories.entities.TransactionCourseMemberAttendence;
 import org.springframework.stereotype.Repository;
 
 @Repository

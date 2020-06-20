@@ -16,7 +16,7 @@ outputDirectory: "src/main/java"
 
 # The package name used when generating entity classes
 #   - string value: full package name
-packageName: "id.akademi.amanda.services.repositories.entities"
+packageName: "id.akademi.amani.services.repositories.entities"
 
 # If you'd like to have JSR-305 annotations in entity classes as well, set the following attribute
 #   - boolean value: true if you need to generate Nonnull/Nullable annotation-wired entities as well
@@ -32,13 +32,13 @@ usePrimitiveForNonNullField: false
 
 # Set the scan mode (possible values: All / RuleBased)
 #   - string value: 'All' (default) or 'RuleBased'
-tableScanMode: 'All'
+# tableScanMode: 'All'
 
 # If the "tableScanMode" is "RuleBased", the table scanner considers these rules
 #   - array of TableScanRule objects
 #     - tableName (string) / tableNames (array): string value that partially matches table names (case sensitive)
-#tableScanRules:
-#  - tableNames: ["foo_.*"]
+tableScanRules:
+ - tableNames: ["master_member"]
 
 # ---------------------------------------------------------
 # *** Rules for exclusion ***

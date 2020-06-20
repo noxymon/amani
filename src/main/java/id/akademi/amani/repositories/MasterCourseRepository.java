@@ -1,7 +1,9 @@
-package id.akademi.amanda.repositories;
+package id.akademi.amani.repositories;
 
-import id.akademi.amanda.repositories.entities.MasterCourse;
+import id.akademi.amani.repositories.entities.MasterCourse;
 import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
 
 @Repository
 public interface MasterCourseRepository extends BaseRepository<MasterCourse, String>
