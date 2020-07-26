@@ -2,9 +2,7 @@ package id.akademi.amani.members.controllers.models;
 
 import id.akademi.amani.repositories.entities.MasterMember;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 @AllArgsConstructor
