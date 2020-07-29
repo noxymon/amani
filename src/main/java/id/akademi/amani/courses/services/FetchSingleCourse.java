@@ -1,13 +1,11 @@
 package id.akademi.amani.courses.services;
 
+import java.util.Optional;
+import org.springframework.stereotype.Service;
 import id.akademi.amani.courses.CourseException;
 import id.akademi.amani.repositories.MasterCourseRepository;
 import id.akademi.amani.repositories.entities.MasterCourse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

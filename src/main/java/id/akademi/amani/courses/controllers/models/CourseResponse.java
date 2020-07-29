@@ -1,12 +1,10 @@
 package id.akademi.amani.courses.controllers.models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import id.akademi.amani.repositories.entities.MasterCourse;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Getter
 @Builder

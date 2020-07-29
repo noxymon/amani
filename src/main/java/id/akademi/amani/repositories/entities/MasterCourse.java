@@ -1,11 +1,14 @@
 package id.akademi.amani.repositories.entities;
 
-import java.sql.*;
-import java.util.UUID;
-import javax.persistence.*;
-import lombok.Data;
+import java.sql.Date;
+import java.sql.Time;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+import lombok.Data;
 
 @Data
 @Entity(name = "id.akademi.amani.services.repositories.entities.MasterCourse")
@@ -49,4 +52,6 @@ public class MasterCourse {
   private Double longitude;
   @Column(name = "\"capacity\"", nullable = false)
   private Integer capacity;
+  @Column(name = "\"passcode\"", nullable = true)
+  private String passcode;
 }
