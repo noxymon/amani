@@ -30,7 +30,7 @@ import lombok.RequiredArgsConstructor;
 public class MemberAuthController
 {
 
-    private final GetMemberDetail getMemberDetail;
+    private final GetMemberDetail    getMemberDetail;
     private final MemberAutheticator memberAutheticator;
 
     @PostMapping("/auth")
@@ -46,11 +46,21 @@ public class MemberAuthController
                     HttpStatus.OK
             );
         } catch (AuthenticationException e) {
-            return new ResponseEntity<MemberAuthenticationFailedException>(
-                    new MemberAuthenticationFailedException("Username or Password not known"),
-                    HttpStatus.UNAUTHORIZED
-            );
+            return failedResponseEntity();
         }
+    }
+
+    private ResponseEntity failedResponseEntity()
+    {
+        return new ResponseEntity<MemberAuthenticationFailedException>(
+                unkownUsernamePasswordMemberAuthException(),
+                HttpStatus.UNAUTHORIZED
+        );
+    }
+
+    private MemberAuthenticationFailedException unkownUsernamePasswordMemberAuthException()
+    {
+        return new MemberAuthenticationFailedException("Username or Password not known");
     }
 
     @GetMapping("/details/{email}")
@@ -58,8 +68,11 @@ public class MemberAuthController
     {
         try {
             final MasterMember memberFound = getMemberDetail.getDetail(email);
-            return new ResponseEntity<MemberResponse>(MemberWithPasswordResponse.from(memberFound), HttpStatus.OK);
-        }catch (MemberNotFoundException ex){
+            return new ResponseEntity<MemberResponse>(
+                    MemberWithPasswordResponse.from(memberFound),
+                    HttpStatus.OK
+            );
+        } catch (MemberNotFoundException ex) {
             return new ResponseEntity<MemberNotFoundException>(ex, HttpStatus.BAD_REQUEST);
         }
     }

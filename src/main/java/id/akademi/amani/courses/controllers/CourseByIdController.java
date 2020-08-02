@@ -25,11 +25,8 @@ public class CourseByIdController
         try {
             final MasterCourse masterCourse = fetchSingleCourse.byId(id);
 
-            return new ResponseEntity(
-                    CourseResponse.from(masterCourse),
-                    HttpStatus.OK
-            );
-        }catch (CourseException exception){
+            return new ResponseEntity(CourseResponse.from(masterCourse), HttpStatus.OK);
+        } catch (CourseException exception) {
             return new ResponseEntity(exception, HttpStatus.BAD_REQUEST);
         }
     }

@@ -16,27 +16,35 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/course")
-public class SignatureGeneratorController {
+public class SignatureGeneratorController
+{
 
     private final SignatureGenerator signatureGenerator;
 
-    @GetMapping(value="/signature/{meetingNumber}")
-    public ResponseEntity<SignatureResponse> generateSignature(@PathVariable("meetingNumber") String meetingNumber) {
+    @GetMapping(value = "/signature/{meetingNumber}")
+    public ResponseEntity<SignatureResponse> generateSignature(
+        @PathVariable("meetingNumber") String meetingNumber)
+    {
         try {
-            SignatureOutput generatedSignature = signatureGenerator.generateParticipantSignature(meetingNumber);
+            SignatureOutput generatedSignature =
+                signatureGenerator.generateParticipantSignature(meetingNumber);
             SignatureResponse signatureResponse = composeSuccessResponse(generatedSignature);
             return new ResponseEntity<SignatureResponse>(signatureResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<SignatureResponse>(new FailedSignatureResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<SignatureResponse>(
+                new FailedSignatureResponse(e.getMessage()),
+                HttpStatus.BAD_REQUEST
+            );
         }
     }
 
-    private SignatureResponse composeSuccessResponse(SignatureOutput generatedSignature) {
+    private SignatureResponse composeSuccessResponse(SignatureOutput generatedSignature)
+    {
         return SignatureResponse.builder()
-                        .role(generatedSignature.getRole())
-                        .apiKey(generatedSignature.getApiKey())
-                        .passcode(generatedSignature.getPasscode())
-                        .signature(generatedSignature.getSignature())
-                        .build();
+            .role(generatedSignature.getRole())
+            .apiKey(generatedSignature.getApiKey())
+            .passcode(generatedSignature.getPasscode())
+            .signature(generatedSignature.getSignature())
+            .build();
     }
 }

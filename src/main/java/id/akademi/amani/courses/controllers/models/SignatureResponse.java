@@ -5,9 +5,10 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class SignatureResponse {
-    private String apiKey;
-    private String signature;
+public class SignatureResponse
+{
+    private String  apiKey;
+    private String  signature;
     private Integer role;
-    private String passcode;
+    private String  passcode;
 }

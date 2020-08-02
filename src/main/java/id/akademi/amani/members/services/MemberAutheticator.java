@@ -15,23 +15,27 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class MemberAutheticator {
-    
+public class MemberAutheticator
+{
+
     private final MasterMemberRepository masterMemberRepository;
 
-    public MasterMember authMember(AuthMemberParameter authMemberParameter) throws AuthenticationException {
-        Optional<MasterMember> existingMember = masterMemberRepository
-            .findByEmailAndPassword(
-                    authMemberParameter.getEmail(), 
-                    authMemberParameter.getPassword()
-            );
-        
-            assertMemberIsExist(existingMember);            
-            return existingMember.get();
+    public MasterMember authMember(AuthMemberParameter authMemberParameter)
+        throws AuthenticationException
+    {
+        Optional<MasterMember> existingMember = masterMemberRepository.findByEmailAndPassword(
+            authMemberParameter.getEmail(),
+            authMemberParameter.getPassword()
+        );
+
+        assertMemberIsExist(existingMember);
+        return existingMember.get();
     }
 
-    private void assertMemberIsExist(Optional<MasterMember> existingMember) throws AuthenticationException {
-        if(!existingMember.isPresent()){
+    private void assertMemberIsExist(Optional<MasterMember> existingMember)
+        throws AuthenticationException
+    {
+        if (!existingMember.isPresent()) {
             throw new MemberAuthenticationFailedException("Username and password not match!");
         }
     };

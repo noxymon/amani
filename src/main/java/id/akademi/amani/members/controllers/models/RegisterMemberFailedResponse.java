@@ -3,13 +3,9 @@ package id.akademi.amani.members.controllers.models;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * AuthMemberRequest
- */
 @Getter
 @RequiredArgsConstructor
-public class AuthMemberRequest
+public class RegisterMemberFailedResponse extends RegisterMemberAbstractResponse
 {
-    private final String email;
-    private final String password;
+    private final String reason;
 }

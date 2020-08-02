@@ -19,9 +19,6 @@ public class AllCoursesController
     @GetMapping("/")
     public ResponseEntity<CoursesResponse> findAll()
     {
-        return new ResponseEntity(
-                CoursesResponse.from(fetchCourses.all()),
-                HttpStatus.OK
-        );
+        return new ResponseEntity(CoursesResponse.from(fetchCourses.all()), HttpStatus.OK);
     }
 }
