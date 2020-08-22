@@ -34,7 +34,7 @@ public class MemberAuthController
     private final MemberAutheticator memberAutheticator;
 
     @PostMapping("/auth")
-    public ResponseEntity authMemberLogin(@RequestBody AuthMemberRequest authMemberRequest)
+    public ResponseEntity<?> authMemberLogin(@RequestBody AuthMemberRequest authMemberRequest)
     {
         AuthMemberParameter authMemberParameter = AuthMemberParameter.from(authMemberRequest);
 
@@ -50,7 +50,7 @@ public class MemberAuthController
         }
     }
 
-    private ResponseEntity failedResponseEntity()
+    private ResponseEntity<?> failedResponseEntity()
     {
         return new ResponseEntity<MemberAuthenticationFailedException>(
                 unkownUsernamePasswordMemberAuthException(),

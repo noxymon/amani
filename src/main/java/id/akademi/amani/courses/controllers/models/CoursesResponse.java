@@ -1,12 +1,10 @@
 package id.akademi.amani.courses.controllers.models;
 
-import id.akademi.amani.courses.services.models.MasterCourse;
-import id.akademi.amani.repositories.entities.MasterCourseEntity;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
+import id.akademi.amani.courses.services.models.MasterCourse;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
