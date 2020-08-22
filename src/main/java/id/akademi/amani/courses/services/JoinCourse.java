@@ -2,6 +2,7 @@ package id.akademi.amani.courses.services;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import id.akademi.amani.commons.TransactionStatus;
 import id.akademi.amani.courses.services.models.JoinCourseOutput;
@@ -21,7 +22,12 @@ public class JoinCourse
 
     public JoinCourseOutput join(JoinCourseParam joinCourseParam)
     {
-        final MasterCourse existingMasterCourseEntity = fetchSingleCourse.byId(joinCourseParam.getCourseId(), null);
+        final MasterCourse existingMasterCourseEntity = fetchSingleCourse.byId(
+            joinCourseParam.getCourseId(), 
+            Optional.of(
+                joinCourseParam.getMemberId()
+            )
+        );
         final long alreadyJoinedInCourse = courseTransactionService.countAttendeeOf(
             joinCourseParam.getCourseId()
         );
@@ -45,7 +51,11 @@ public class JoinCourse
     private void assertCourseAvailale(MasterCourse existingMasterCourse, long alreadyJoinedInCourse)
     {
         if (alreadyJoinedInCourse >= existingMasterCourse.getCapacity()) {
-            throw new RuntimeException("Course ini sudah penuh");
+            throw new RuntimeException("Kelas ini sudah penuh");
+        }
+
+        if(existingMasterCourse.isMemberAlreadyJoined()){
+            throw new RuntimeException("Kamu sudah terdaftar pada kelas ini :)");
         }
     }
 
