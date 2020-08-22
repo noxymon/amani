@@ -7,7 +7,7 @@ import id.akademi.amani.members.MemberAuthenticationFailedException;
 import org.springframework.stereotype.Service;
 import id.akademi.amani.members.services.models.AuthMemberParameter;
 import id.akademi.amani.repositories.MasterMemberRepository;
-import id.akademi.amani.repositories.entities.MasterMember;
+import id.akademi.amani.repositories.entities.MasterMemberEntity;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -20,10 +20,10 @@ public class MemberAutheticator
 
     private final MasterMemberRepository masterMemberRepository;
 
-    public MasterMember authMember(AuthMemberParameter authMemberParameter)
+    public MasterMemberEntity authMember(AuthMemberParameter authMemberParameter)
         throws AuthenticationException
     {
-        Optional<MasterMember> existingMember = masterMemberRepository.findByEmailAndPassword(
+        Optional<MasterMemberEntity> existingMember = masterMemberRepository.findByEmailAndPassword(
             authMemberParameter.getEmail(),
             authMemberParameter.getPassword()
         );
@@ -32,7 +32,7 @@ public class MemberAutheticator
         return existingMember.get();
     }
 
-    private void assertMemberIsExist(Optional<MasterMember> existingMember)
+    private void assertMemberIsExist(Optional<MasterMemberEntity> existingMember)
         throws AuthenticationException
     {
         if (!existingMember.isPresent()) {

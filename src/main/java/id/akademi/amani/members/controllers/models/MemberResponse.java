@@ -1,6 +1,6 @@
 package id.akademi.amani.members.controllers.models;
 
-import id.akademi.amani.repositories.entities.MasterMember;
+import id.akademi.amani.repositories.entities.MasterMemberEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,14 +14,15 @@ public class MemberResponse
     private String lastName;
     private String memberType;
 
-    public static MemberResponse from(MasterMember masterMember)
+    public static MemberResponse from(MasterMemberEntity masterMemberEntity)
     {
         return new MemberResponse(
-            masterMember.getId().toString(),
-            masterMember.getEmail(),
-            masterMember.getFirstName(),
-            masterMember.getLastName(),
-            masterMember.getMemberType()
+            masterMemberEntity
+              .getId().toString(),
+            masterMemberEntity.getEmail(),
+            masterMemberEntity.getFirstName(),
+            masterMemberEntity.getLastName(),
+            masterMemberEntity.getMemberType()
         );
     };
 }

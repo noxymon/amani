@@ -13,7 +13,7 @@ import id.akademi.amani.members.controllers.models.RegisterMemberRequest;
 import id.akademi.amani.members.controllers.models.RegisterMemberSuccessResponse;
 import id.akademi.amani.members.services.RegisterMember;
 import id.akademi.amani.members.services.models.RegisterMemberParam;
-import id.akademi.amani.repositories.entities.MasterMember;
+import id.akademi.amani.repositories.entities.MasterMemberEntity;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -29,7 +29,7 @@ public class MemberRegisterController
     {
         try {
             RegisterMemberParam registerMemberParam = buildRegisterMemberParam(registerMemberRequest);
-            final MasterMember registeredMember = registerMember.registerMember(registerMemberParam);
+            final MasterMemberEntity registeredMember = registerMember.registerMember(registerMemberParam);
             return successResponse(registeredMember);
         } catch (RuntimeException e) {
             return failedRegiterResponse(e);
@@ -37,7 +37,7 @@ public class MemberRegisterController
     }
 
     private ResponseEntity<RegisterMemberAbstractResponse> successResponse(
-        final MasterMember registeredMember)
+        final MasterMemberEntity registeredMember)
     {
         return new ResponseEntity<>(buildSuccessResponse(registeredMember), HttpStatus.ACCEPTED);
     }
@@ -50,7 +50,7 @@ public class MemberRegisterController
         );
     }
 
-    private RegisterMemberSuccessResponse buildSuccessResponse(final MasterMember registeredMember)
+    private RegisterMemberSuccessResponse buildSuccessResponse(final MasterMemberEntity registeredMember)
     {
         return RegisterMemberSuccessResponse.builder()
             .uuid(registeredMember.getId().toString())

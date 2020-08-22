@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 @Entity(name = "id.akademi.amani.repositories.entities.MasterMember")
 @Table(name = "master_member")
-public class MasterMember {
+public class MasterMemberEntity
+{
 
   @Id
   @Column(name = "\"id\"", nullable = false)

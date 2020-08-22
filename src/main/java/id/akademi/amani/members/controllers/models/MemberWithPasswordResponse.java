@@ -1,6 +1,6 @@
 package id.akademi.amani.members.controllers.models;
 
-import id.akademi.amani.repositories.entities.MasterMember;
+import id.akademi.amani.repositories.entities.MasterMemberEntity;
 import lombok.Getter;
 
 @Getter
@@ -15,15 +15,16 @@ public class MemberWithPasswordResponse extends MemberResponse
         this.password = password;
     }
 
-    public static MemberResponse from(MasterMember masterMember)
+    public static MemberResponse from(MasterMemberEntity masterMemberEntity)
     {
         return new MemberWithPasswordResponse(
-            masterMember.getId().toString(),
-            masterMember.getEmail(),
-            masterMember.getFirstName(),
-            masterMember.getLastName(),
-            masterMember.getMemberType(),
-            masterMember.getPassword()
+            masterMemberEntity
+              .getId().toString(),
+            masterMemberEntity.getEmail(),
+            masterMemberEntity.getFirstName(),
+            masterMemberEntity.getLastName(),
+            masterMemberEntity.getMemberType(),
+            masterMemberEntity.getPassword()
         );
     }
 }

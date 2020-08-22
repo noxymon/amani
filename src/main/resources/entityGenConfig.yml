@@ -2,10 +2,10 @@
 # *** JDBC configuration to fetch metadata ***
 
 jdbcSettings:
-  url: "jdbc:mariadb://172.17.0.2:3306/amanidb_v1"
+  url: "jdbc:postgresql://172.20.0.2:5432/amanidb_v1?prepareThreshold=0&hostRecheckSeconds=5"
   username: "master"
-  password: password4m4ni2020
-  driverClassName: "org.mariadb.jdbc.Driver"
+  password: 12345678
+  driverClassName: "org.postgresql.Driver"
 
 # ---------------------------------------------------------
 # *** Basic/global configuration ***
@@ -16,7 +16,7 @@ outputDirectory: "src/main/java"
 
 # The package name used when generating entity classes
 #   - string value: full package name
-packageName: "id.akademi.amani.services.repositories.entities"
+packageName: "id.akademi.amani.repositories.entities"
 
 # If you'd like to have JSR-305 annotations in entity classes as well, set the following attribute
 #   - boolean value: true if you need to generate Nonnull/Nullable annotation-wired entities as well
@@ -38,7 +38,7 @@ usePrimitiveForNonNullField: false
 #   - array of TableScanRule objects
 #     - tableName (string) / tableNames (array): string value that partially matches table names (case sensitive)
 tableScanRules:
- - tableNames: ["master_member"]
+ - tableNames: ["master_course"]
 
 # ---------------------------------------------------------
 # *** Rules for exclusion ***

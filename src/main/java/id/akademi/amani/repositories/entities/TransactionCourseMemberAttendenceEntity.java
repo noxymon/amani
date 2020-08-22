@@ -10,7 +10,8 @@ import lombok.Data;
 @Data
 @Entity(name = "id.akademi.amani.repositories.entities.TransactionCourseMemberAttendence")
 @Table(name = "transaction_course_member_attendence")
-public class TransactionCourseMemberAttendence {
+public class TransactionCourseMemberAttendenceEntity
+{
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

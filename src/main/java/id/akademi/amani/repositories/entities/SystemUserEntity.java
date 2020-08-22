@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 @Entity(name = "id.akademi.amani.repositories.entities.SystemUser")
 @Table(name = "system_user")
-public class SystemUser {
+public class SystemUserEntity
+{
 
   @Id
   @Column(name = "\"id\"", nullable = false)

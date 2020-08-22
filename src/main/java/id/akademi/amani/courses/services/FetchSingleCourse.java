@@ -2,23 +2,32 @@ package id.akademi.amani.courses.services;
 
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import id.akademi.amani.courses.CourseException;
+import id.akademi.amani.courses.mappers.MasterCourseMapper;
+import id.akademi.amani.courses.services.models.MasterCourse;
 import id.akademi.amani.repositories.MasterCourseRepository;
-import id.akademi.amani.repositories.entities.MasterCourse;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class FetchSingleCourse
 {
-    private final MasterCourseRepository masterCourseRepository;
+    private final MasterCourseRepository   masterCourseRepository;
+    private final CourseTransactionService courseTransactionService;
+    private final MasterCourseMapper       masterCourseMapper = MasterCourseMapper.INSTANCE;
 
-    public MasterCourse byId(String id)
+    public MasterCourse byId(String id, Optional<String> memberId)
     {
-        final Optional<MasterCourse> foundCoursesOptional = masterCourseRepository.findById(id);
-        if (foundCoursesOptional.isPresent()) {
-            return foundCoursesOptional.get();
+        long attendeeCount = courseTransactionService.countAttendeeOf(id);
+        
+        MasterCourse masterCourseExisting = masterCourseMapper.map(
+            masterCourseRepository.findById(id).orElseThrow()
+        );
+        masterCourseExisting.setJoinedCount(attendeeCount);
+        
+        if(memberId.isPresent()){
+            boolean isMemberAlreadyJoined = courseTransactionService.isMemberAlreadyJoined(id, memberId.get());
+            masterCourseExisting.setMemberAlreadyJoined(isMemberAlreadyJoined);
         }
-        throw new CourseException("Ooops, we can't found course you look for");
+        return masterCourseExisting;
     }
 }

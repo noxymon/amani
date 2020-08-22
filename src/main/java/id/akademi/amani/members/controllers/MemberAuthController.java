@@ -18,7 +18,7 @@ import id.akademi.amani.members.controllers.models.AuthMemberRequest;
 import id.akademi.amani.members.controllers.models.MemberResponse;
 import id.akademi.amani.members.services.MemberAutheticator;
 import id.akademi.amani.members.services.models.AuthMemberParameter;
-import id.akademi.amani.repositories.entities.MasterMember;
+import id.akademi.amani.repositories.entities.MasterMemberEntity;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -39,7 +39,7 @@ public class MemberAuthController
         AuthMemberParameter authMemberParameter = AuthMemberParameter.from(authMemberRequest);
 
         try {
-            MasterMember authenticatedMember = memberAutheticator.authMember(authMemberParameter);
+            MasterMemberEntity authenticatedMember = memberAutheticator.authMember(authMemberParameter);
 
             return new ResponseEntity<MemberResponse>(
                     MemberResponse.from(authenticatedMember),
@@ -67,7 +67,7 @@ public class MemberAuthController
     public ResponseEntity getUsernameDetails(@PathVariable String email)
     {
         try {
-            final MasterMember memberFound = getMemberDetail.getDetail(email);
+            final MasterMemberEntity memberFound = getMemberDetail.getDetail(email);
             return new ResponseEntity<MemberResponse>(
                     MemberWithPasswordResponse.from(memberFound),
                     HttpStatus.OK
