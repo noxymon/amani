@@ -64,7 +64,7 @@ public class MemberAuthController
     }
 
     @GetMapping("/details/{email}")
-    public ResponseEntity getUsernameDetails(@PathVariable String email)
+    public ResponseEntity<?> getUsernameDetails(@PathVariable String email)
     {
         try {
             final MasterMemberEntity memberFound = getMemberDetail.getDetail(email);
