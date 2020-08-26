@@ -1,4 +1,4 @@
-package id.akademi.amani.users.controllers.models;
+package id.akademi.amani.admin.controllers.models;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

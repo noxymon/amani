@@ -1,4 +1,4 @@
-package id.akademi.amani.users.services.models;
+package id.akademi.amani.admin.services.models;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -3,7 +3,7 @@ package id.akademi.amani.courses.services;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
-import id.akademi.amani.courses.mappers.MasterCourseMapper;
+import id.akademi.amani.courses.mappers.EntityMapper;
 import id.akademi.amani.courses.services.models.MasterCourse;
 import id.akademi.amani.repositories.MasterCourseRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,14 +14,14 @@ public class FetchCourses
 {
   private final MasterCourseRepository   masterCourseRepository;
   private final CourseTransactionService courseTransactionService;
-  private final MasterCourseMapper       masterCourseMapper = MasterCourseMapper.INSTANCE;
+  private final EntityMapper             entityMapper = EntityMapper.INSTANCE;
 
   public List<MasterCourse> all()
   {
     return masterCourseRepository.findAll()
     .parallelStream()
     .map(entity -> {
-      MasterCourse map = masterCourseMapper.map(entity);
+      MasterCourse map = entityMapper.from(entity);
       map.setJoinedCount(courseTransactionService.countAttendeeOf(entity.getId()));
       return map;
     })

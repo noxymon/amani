@@ -1,4 +1,4 @@
-package id.akademi.amani.users.services;
+package id.akademi.amani.admin.services;
 
 import id.akademi.amani.repositories.SystemUserRepository;
 import id.akademi.amani.repositories.entities.SystemUserEntity;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GetUsers
+public class GetAdmin
 {
     private final SystemUserRepository systemUserRepository;
 

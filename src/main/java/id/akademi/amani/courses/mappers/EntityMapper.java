@@ -7,10 +7,10 @@ import id.akademi.amani.courses.services.models.MasterCourse;
 import id.akademi.amani.repositories.entities.MasterCourseEntity;
 
 @Mapper(componentModel = "spring")
-public interface MasterCourseMapper {
-    MasterCourseMapper INSTANCE = Mappers.getMapper(MasterCourseMapper.class);
+public interface EntityMapper
+{
+    EntityMapper INSTANCE = Mappers.getMapper(EntityMapper.class);
 
-    MasterCourse map(MasterCourseEntity masterCourseEntity);
-
-    List<MasterCourse> map(List<MasterCourseEntity> masterCourseEntity);
+    MasterCourse from(MasterCourseEntity masterCourseEntity);
+    List<MasterCourse> from(List<MasterCourseEntity> masterCourseEntity);
 }
