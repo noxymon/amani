@@ -2,12 +2,14 @@ package id.akademi.amani.courses.services.models;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.UUID;
+
 import lombok.Data;
 
 @Data
 public class MasterCourse
 {
-    private String  id;
+    private UUID    id;
     private Integer capacity;
     private String  courseDescription;
     private Date    courseEndDate;
@@ -29,4 +31,5 @@ public class MasterCourse
     private String  courseOutline;
     private Long    joinedCount;
     private boolean isMemberAlreadyJoined;
+    private boolean publicAccess;
 }

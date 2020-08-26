@@ -1,6 +1,8 @@
 package id.akademi.amani.courses.services;
 
 import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 import id.akademi.amani.courses.mappers.MasterCourseMapper;
 import id.akademi.amani.courses.services.models.MasterCourse;
@@ -18,13 +20,12 @@ public class FetchSingleCourse
     public MasterCourse byId(String id, Optional<String> memberId)
     {
         long attendeeCount = courseTransactionService.countAttendeeOf(id);
-        
-        MasterCourse masterCourseExisting = masterCourseMapper.map(
-            masterCourseRepository.findById(id).orElseThrow()
-        );
+        MasterCourse masterCourseExisting = masterCourseMapper.map(masterCourseRepository
+          .findById(UUID.fromString(id))
+          .orElseThrow());
         masterCourseExisting.setJoinedCount(attendeeCount);
-        
-        if(memberId.isPresent()){
+
+        if (memberId.isPresent()) {
             boolean isMemberAlreadyJoined = courseTransactionService.isMemberAlreadyJoined(id, memberId.get());
             masterCourseExisting.setMemberAlreadyJoined(isMemberAlreadyJoined);
         }

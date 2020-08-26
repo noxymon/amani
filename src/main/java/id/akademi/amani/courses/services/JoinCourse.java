@@ -63,7 +63,7 @@ public class JoinCourse
         JoinCourseParam joinCourseParam, MasterCourse existingMasterCourse)
     {
         TransactionCourseMemberAttendenceEntity transactionCourseMember = new TransactionCourseMemberAttendenceEntity();
-        transactionCourseMember.setCourseId(existingMasterCourse.getId());
+        transactionCourseMember.setCourseId(existingMasterCourse.getId().toString());
         transactionCourseMember.setMemberId(joinCourseParam.getMemberId());
         transactionCourseMember.setDiscount(0d);
         transactionCourseMember.setAmount(0d);
