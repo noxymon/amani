@@ -22,7 +22,7 @@ public class FetchCourses
     .parallelStream()
     .map(entity -> {
       MasterCourse map = entityMapper.from(entity);
-      map.setJoinedCount(courseTransactionService.countAttendeeOf(entity.getId()));
+      map.setJoinedCount(courseTransactionService.countAttendeeOf(entity.getId().toString()));
       return map;
     })
     .collect(Collectors.toList());
