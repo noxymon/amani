@@ -1,6 +1,8 @@
 package id.akademi.amani.repositories.entities;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.UUID;
 import javax.persistence.*;
 import lombok.Data;
 
@@ -11,12 +13,13 @@ public class MasterMemberEntity
 {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "\"id\"", nullable = false)
-  private String id;
+  private UUID    id;
   @Column(name = "\"active\"", nullable = false)
   private boolean active;
   @Column(name = "\"create_date\"", nullable = false)
-  private Timestamp createDate;
+  private Timestamp createDate = Timestamp.valueOf(LocalDateTime.now());
   @Column(name = "\"date_of_birth\"", nullable = true)
   private Date dateOfBirth;
   @Column(name = "\"email\"", nullable = false)
@@ -32,7 +35,7 @@ public class MasterMemberEntity
   @Column(name = "\"update_date\"", nullable = true)
   private Timestamp updateDate;
   @Column(name = "\"user_created\"", nullable = false)
-  private String userCreated;
+  private String userCreated = "SYSTEM";
   @Column(name = "\"user_updated\"", nullable = true)
   private String userUpdated;
 }

@@ -36,7 +36,7 @@ public class CourseResponse
   {
     LocalDate now = LocalDate.now();
     return CourseResponse.builder()
-                         .id(masterCourse.getId())
+                         .id(masterCourse.getId().toString())
                          .capacity(masterCourse.getCapacity())
                          .courseName(masterCourse.getCourseName())
                          .courseDescription(masterCourse.getCourseDescription())
