@@ -34,7 +34,7 @@ import lombok.RequiredArgsConstructor;
 public class SignatureGenerator
 {
 
-    private static final int   PARTICIPANT_ROLE_ID = 1;
+    private static final int   PARTICIPANT_ROLE_ID = 0;
     @Value("${apps.webinar.apikey}")
     private String             apiKey;
     @Value("${apps.webinar.apiSecret}")
