@@ -31,6 +31,7 @@ public class CourseResponse
   private String    meetingId;
   private String    courseOutline;
   private boolean   alreadyJoined;
+  private String passcode;
 
   public static CourseResponse from(MasterCourse masterCourse)
   {
@@ -58,6 +59,7 @@ public class CourseResponse
                              masterCourse.getCourseStartDate().toLocalDate().atStartOfDay()
                            ).toDays()
                          )
+                         .passcode(masterCourse.getPasscode())
                          .registeredCount(masterCourse.getJoinedCount())
                          .courseOutline(masterCourse.getCourseOutline())
                          .alreadyJoined(masterCourse.isMemberAlreadyJoined())

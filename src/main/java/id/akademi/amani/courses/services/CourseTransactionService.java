@@ -17,11 +17,4 @@ public class CourseTransactionService {
         courseMemberAttendenceExample.setCourseId(id);
         return transactionCourseMemberRepository.count(Example.of(courseMemberAttendenceExample));
     }
-
-    public boolean isMemberAlreadyJoined(String courseId, String memberId){
-        TransactionCourseMemberAttendenceEntity courseMemberAttendenceEntity = new TransactionCourseMemberAttendenceEntity();
-        courseMemberAttendenceEntity.setCourseId(courseId);
-        courseMemberAttendenceEntity.setMemberId(memberId);
-        return transactionCourseMemberRepository.exists(Example.of(courseMemberAttendenceEntity));
-    };
 }
