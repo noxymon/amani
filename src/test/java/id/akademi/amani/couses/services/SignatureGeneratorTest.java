@@ -36,11 +36,12 @@ public class SignatureGeneratorTest {
 		headerMap.put("alg", signatureAlgorithm.getValue());
 		headerMap.put(Header.TYPE, Header.JWT_TYPE);
 
-		SecretKey key = Keys.hmacShaKeyFor("***REMOVED***".getBytes(StandardCharsets.UTF_8));
+		SecretKey key = Keys.hmacShaKeyFor("Qg6o0pYxZd0A30SP9EkVPa7Z4Ortczrl0AVj".getBytes(StandardCharsets.UTF_8));
 
+	    	//replace issuer with apikey of zoom
 		return Jwts.builder()
 				.setHeader(headerMap)
-				.setIssuer("***REMOVED***")
+				.setIssuer("fillWithApiKeyHere")
 				.setExpiration(jwtExpiredFromLocalDate)
 				.signWith(key, signatureAlgorithm)
 				.compact();
